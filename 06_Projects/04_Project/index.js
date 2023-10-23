@@ -1,5 +1,3 @@
-console.log();
-
 let randomNumber = parseInt(Math.random() * 100 + 1);
 const submit = document.querySelector("#subt");
 const userInput = document.querySelector("#guessField");
@@ -12,13 +10,12 @@ const p = document.createElement("p");
 
 let prevGuess = [];
 let numGuess = 1;
-
 let playGame = true;
+
 if (playGame) {
   submit.addEventListener("click", (e) => {
     e.preventDefault();
     const guess = parseInt(userInput.value);
-    console.log(userInput);
     validateGuess(guess);
   });
 }
@@ -32,7 +29,7 @@ const validateGuess = (guess) => {
     alert("Please enter a number less then 100");
   } else {
     prevGuess.push(guess);
-    if (numGuess === 11) {
+    if (numGuess > 10) {
       displayGuess(guess);
       displayMessage(`Game Over , Random number was ${randomNumber}`);
       endGame();
